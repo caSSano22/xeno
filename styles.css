@@ -1,18 +1,18 @@
 /* ==========================================================================
-   XENO - THE THIRD RAIL OF GLOBAL PAYMENTS FOR ROBINHOOD CHAIN (EXACT REPLICA)
-   Design System: Light Glassmorphism (#fafafa / bg-soft), Inter & Trap Fonts,
-                  Yellow Gold Accents (#FFD400, #B89700), NFC Tap Simulator,
-                  Technical Comparison Matrix, Multi-Page HTML
+   XENO - STABLECOIN CARD SCHEME FOR ROBINHOOD CHAIN (ENHANCED EFFECTS & FONTS)
+   Fonts: Outfit (Display Headlines), Inter (Body Text), JetBrains Mono (Tech Specs)
+   Effects: Glassmorphism Spotlight Glow, 3D Card Tilt, Animated Button Shimmer,
+            Concentric NFC Radar Pulse, Table Row Glow Highlights
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   --bg-soft: #f8fafc;
   --bg-softer: #f1f5f9;
   --surface-white: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.72);
-  --surface-glass-card: rgba(255, 255, 255, 0.85);
+  --surface-glass: rgba(255, 255, 255, 0.76);
+  --surface-glass-card: rgba(255, 255, 255, 0.88);
 
   --stroke: rgba(15, 23, 42, 0.08);
   --stroke-strong: rgba(15, 23, 42, 0.16);
@@ -23,17 +23,19 @@
   --text-light: #94a3b8;
 
   --accent-yellow: #FFD400;
+  --accent-yellow-light: #ffe866;
   --accent-yellow-dark: #B89700;
   --accent-black: #121212;
   --green: #22c55e;
 
+  --font-display: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 36px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
   --radius-pill: 9999px;
 }
 
@@ -56,8 +58,10 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  line-height: 1.55;
-  background: var(--bg-soft);
+  line-height: 1.6;
+  background:
+    radial-gradient(80% 50% at 50% 0%, rgba(255, 212, 0, 0.12) 0%, transparent 80%),
+    var(--bg-soft);
 }
 
 a {
@@ -90,10 +94,12 @@ button {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(248, 250, 252, 0.85);
-  backdrop-filter: blur(16px);
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--stroke);
   padding: 16px 36px;
+  transition: all 0.3s ease;
 }
 
 .navbar-inner {
@@ -109,10 +115,15 @@ button {
   align-items: center;
   gap: 12px;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.03);
 }
 
 .chain-tag {
@@ -120,12 +131,14 @@ button {
   align-items: center;
   gap: 6px;
   background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.25);
+  border: 1px solid rgba(34, 197, 94, 0.3);
   color: var(--green);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .nav-links {
@@ -136,195 +149,241 @@ button {
 
 .nav-link {
   color: var(--text-secondary);
-  font-size: 0.92rem;
-  font-weight: 500;
-  transition: color 0.15s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-yellow-dark);
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--text-primary);
 }
 
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Shimmer Buttons */
 .btn-yellow {
-  background: var(--accent-yellow);
+  background: linear-gradient(120deg, #FFD400, #ffe566 50%, #FFD400);
+  background-size: 200% 100%;
   color: var(--text-primary);
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: var(--radius-pill);
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.92rem;
   border: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 16px rgba(255, 212, 0, 0.35);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(255, 212, 0, 0.4);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-yellow:hover {
-  background: #ffe033;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(255, 212, 0, 0.45);
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 212, 0, 0.55);
 }
 
 .btn-black {
   background: var(--accent-black);
   color: #ffffff;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
   border: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
 }
 
 .btn-black:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
+  background: #262626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 /* Hero Section */
 .hero {
-  padding-top: 140px;
-  padding-bottom: 80px;
+  padding-top: 150px;
+  padding-bottom: 90px;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 212, 0, 0.15);
-  border: 1px solid rgba(184, 151, 0, 0.3);
+  background: rgba(255, 212, 0, 0.16);
+  border: 1px solid rgba(184, 151, 0, 0.35);
   color: var(--accent-yellow-dark);
-  padding: 6px 16px;
+  padding: 6px 18px;
   border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 10px rgba(255, 212, 0, 0.15);
 }
 
 h1.hero-title {
   font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.05;
+  font-size: clamp(44px, 6.5vw, 80px);
+  line-height: 1.02;
   font-weight: 900;
   letter-spacing: -0.04em;
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 h1.hero-title span.highlight {
   color: var(--accent-yellow-dark);
-  position: relative;
+  background: linear-gradient(120deg, #B89700, #d4ae00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-sub {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
-  max-width: 680px;
-  margin: 0 auto 36px;
-  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  line-height: 1.65;
 }
 
-/* NFC Tap-to-Pay Terminal Simulator Widget */
+/* NFC Tap-to-Pay Terminal Simulator Widget with Radar Rings */
 .nfc-simulator-wrap {
-  margin: 40px auto 0;
-  max-width: 880px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--stroke-strong);
+  margin: 48px auto 0;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid var(--stroke-strong);
   border-radius: var(--radius-xl);
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  padding: 48px;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nfc-simulator-wrap:hover {
+  box-shadow: 0 30px 80px rgba(255, 212, 0, 0.18);
 }
 
 .simulator-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 36px;
   align-items: center;
 }
 
 .pos-terminal-card {
-  background: #111827;
+  background: #0f172a;
   color: #ffffff;
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 36px;
   text-align: left;
   position: relative;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
+  overflow: hidden;
 }
 
 .nfc-signal-ring {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  background: rgba(255, 212, 0, 0.2);
+  background: rgba(255, 212, 0, 0.15);
   border: 2px solid var(--accent-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  box-shadow: 0 0 20px var(--accent-yellow);
-  animation: nfc-pulse 2s ease-in-out infinite;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  box-shadow: 0 0 25px rgba(255, 212, 0, 0.6);
+  position: relative;
 }
 
-@keyframes nfc-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
+.nfc-signal-ring::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 212, 0, 0.4);
+  animation: radar-pulse 2.4s ease-out infinite;
+}
+
+@keyframes radar-pulse {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 .phone-wallet-card {
   background: var(--surface-white);
-  border: 1px solid var(--stroke-strong);
+  border: 1.5px solid var(--stroke-strong);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 36px;
   text-align: left;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* Tab Switcher Section */
 .switcher-section {
-  padding: 90px 0;
+  padding: 100px 0;
 }
 
 .tab-buttons {
   display: inline-flex;
   gap: 12px;
-  background: rgba(0, 0, 0, 0.04);
-  padding: 6px;
+  background: rgba(15, 23, 42, 0.05);
+  padding: 8px;
   border-radius: var(--radius-pill);
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .tab-btn {
-  padding: 12px 28px;
+  padding: 14px 32px;
   border-radius: var(--radius-pill);
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
   border: none;
   background: transparent;
   color: var(--text-muted);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .tab-btn.active {
   background: var(--surface-white);
   color: var(--text-primary);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Technical Comparison Matrix Table */
 .comparison-section {
-  padding: 90px 0;
+  padding: 100px 0;
   background: var(--bg-softer);
   border-top: 1px solid var(--stroke);
   border-bottom: 1px solid var(--stroke);
@@ -337,34 +396,43 @@ h1.hero-title span.highlight {
   background: var(--surface-white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border: 1px solid var(--stroke);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--stroke-strong);
+}
+
+.comparison-table tr {
+  transition: background 0.2s ease;
+}
+
+.comparison-table tr:hover {
+  background: rgba(255, 212, 0, 0.04);
 }
 
 .comparison-table th, .comparison-table td {
-  padding: 20px 24px;
+  padding: 22px 28px;
   text-align: left;
   border-bottom: 1px solid var(--stroke);
 }
 
 .comparison-table th {
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(15, 23, 42, 0.02);
 }
 
 .comparison-table th.highlight-col, .comparison-table td.highlight-col {
-  background: rgba(255, 212, 0, 0.08);
+  background: rgba(255, 212, 0, 0.1);
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* Partner & Settlement Network Strip */
 .partner-strip {
-  padding: 60px 0;
+  padding: 70px 0;
   text-align: center;
 }
 
@@ -372,27 +440,28 @@ h1.hero-title span.highlight {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 52px;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-top: 28px;
+  font-family: var(--font-mono);
   color: var(--text-muted);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 /* Footer */
 footer {
   background: var(--surface-white);
   border-top: 1px solid var(--stroke);
-  padding: 80px 0 40px;
+  padding: 90px 0 50px;
 }
 
 /* Modals & Toasts */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
   z-index: 500;
   display: flex;
   align-items: center;
@@ -411,23 +480,25 @@ footer {
 .modal-content-xeno {
   background: var(--surface-white);
   border-radius: var(--radius-lg);
-  padding: 40px;
-  max-width: 480px;
+  padding: 44px;
+  max-width: 500px;
   width: 100%;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
 }
 
 .toast-xeno {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
+  bottom: 32px;
+  right: 32px;
   z-index: 1000;
-  background: #111827;
+  background: #0f172a;
   color: #ffffff;
-  padding: 14px 24px;
+  padding: 16px 28px;
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  border-left: 4px solid var(--accent-yellow);
 }
 
 /* Responsive */

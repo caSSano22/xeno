@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frequently Asked Questions — Xeno Card Scheme</title>
+  <meta name="description" content="Frequently asked questions about Xeno stablecoin card scheme, Robinhood EVM payments, zero chargebacks, and NFC tap-to-pay infrastructure." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="virtual-protocol-site-verification" content="d31316561a7c1d15561f4a424676cff0" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#121212"/>
+            <path d="M12 12L28 28M28 12L12 28" stroke="#FFD400" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span>XENO</span>
+        </a>
+
+        <div class="chain-tag">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+          ROBINHOOD CHAIN
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link active">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button class="btn-black connect-wallet-trigger" onclick="openWalletModal()">Connect Wallet</button>
+        <a href="contact.html" class="btn-yellow">Start Integration →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FAQ CONTENT -->
+  <main class="max-w-5xl" style="padding-top: 140px; padding-bottom: 90px;">
+    <div class="hero-badge">FREQUENTLY ASKED QUESTIONS</div>
+    <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.03em;">
+      Everything You Need to Know
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 60px; line-height: 1.6;">
+      Detailed answers about Xeno, USDg stablecoin payments, terminal compatibility, and Robinhood Chain EVM settlement.
+    </p>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 60px;">
+      
+      <!-- FAQ Item 1 -->
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-md); overflow: hidden;">
+        <div class="faq-accordion-header" style="padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">
+          <span>Is Xeno a cryptocurrency token?</span>
+          <span style="font-size: 1.2rem;">+</span>
+        </div>
+        <div class="faq-accordion-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 32px;">
+          <p style="color: var(--text-secondary); line-height: 1.65; padding-bottom: 24px; font-size: 0.98rem;">
+            No. Xeno is not a token and does not have its own cryptocurrency. Xeno is a payment network — infrastructure that lets people pay with existing stablecoins like USDg and EURC by tapping their phone, similar to Apple Pay. There is no XENO token, no presale, and no airdrop.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-md); overflow: hidden;">
+        <div class="faq-accordion-header" style="padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">
+          <span>How is Xeno different from a crypto debit card?</span>
+          <span style="font-size: 1.2rem;">+</span>
+        </div>
+        <div class="faq-accordion-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 32px;">
+          <p style="color: var(--text-secondary); line-height: 1.65; padding-bottom: 24px; font-size: 0.98rem;">
+            Crypto debit cards convert your crypto to fiat at the moment of payment and route through Visa or Mastercard. You lose self-custody, can't earn yield, and the merchant pays heavy interchange fees. With Xeno, users keep self-custody of their USDg, earn yield until the moment of payment, and settle peer-to-peer on Robinhood EVM.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-md); overflow: hidden;">
+        <div class="faq-accordion-header" style="padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">
+          <span>Does Xeno work with existing payment terminals?</span>
+          <span style="font-size: 1.2rem;">+</span>
+        </div>
+        <div class="faq-accordion-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 32px;">
+          <p style="color: var(--text-secondary); line-height: 1.65; padding-bottom: 24px; font-size: 0.98rem;">
+            Yes. Xeno ships as a kernel update for existing PAX, Verifone, and Ingenico terminals — no new hardware required. Merchants accept stablecoin payments through the same terminal they already use alongside Visa and Mastercard.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-md); overflow: hidden;">
+        <div class="faq-accordion-header" style="padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">
+          <span>How does Xeno eliminate chargebacks?</span>
+          <span style="font-size: 1.2rem;">+</span>
+        </div>
+        <div class="faq-accordion-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 32px;">
+          <p style="color: var(--text-secondary); line-height: 1.65; padding-bottom: 24px; font-size: 0.98rem;">
+            Transactions are signed cryptographically on-device by the user's private key and settled directly on Robinhood Chain EVM. Onchain settlement provides irreversible finality in under 1.5 seconds, eliminating credit card chargeback fraud.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="max-w-7xl" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 8px;">XENO</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">&copy; 2026 Xeno Protocol. Robinhood Chain EVM Payment Rail.</p>
+      </div>
+
+      <div class="nav-links" style="display: flex;">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

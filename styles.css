@@ -1,0 +1,437 @@
+/* ==========================================================================
+   XENO - THE THIRD RAIL OF GLOBAL PAYMENTS FOR ROBINHOOD CHAIN (EXACT REPLICA)
+   Design System: Light Glassmorphism (#fafafa / bg-soft), Inter & Trap Fonts,
+                  Yellow Gold Accents (#FFD400, #B89700), NFC Tap Simulator,
+                  Technical Comparison Matrix, Multi-Page HTML
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-soft: #f8fafc;
+  --bg-softer: #f1f5f9;
+  --surface-white: #ffffff;
+  --surface-glass: rgba(255, 255, 255, 0.72);
+  --surface-glass-card: rgba(255, 255, 255, 0.85);
+
+  --stroke: rgba(15, 23, 42, 0.08);
+  --stroke-strong: rgba(15, 23, 42, 0.16);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --accent-yellow: #FFD400;
+  --accent-yellow-dark: #B89700;
+  --accent-black: #121212;
+  --green: #22c55e;
+
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-pill: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-soft);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.55;
+  background: var(--bg-soft);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Layout Containers */
+.max-w-7xl {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.max-w-5xl {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--stroke);
+  padding: 16px 36px;
+}
+
+.navbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+}
+
+.chain-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--green);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-primary);
+}
+
+.btn-yellow {
+  background: var(--accent-yellow);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(255, 212, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-yellow:hover {
+  background: #ffe033;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(255, 212, 0, 0.45);
+}
+
+.btn-black {
+  background: var(--accent-black);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-black:hover {
+  background: #2a2a2a;
+  transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 212, 0, 0.15);
+  border: 1px solid rgba(184, 151, 0, 0.3);
+  color: var(--accent-yellow-dark);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+h1.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+h1.hero-title span.highlight {
+  color: var(--accent-yellow-dark);
+  position: relative;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+/* NFC Tap-to-Pay Terminal Simulator Widget */
+.nfc-simulator-wrap {
+  margin: 40px auto 0;
+  max-width: 880px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--stroke-strong);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.pos-terminal-card {
+  background: #111827;
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.nfc-signal-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 212, 0, 0.2);
+  border: 2px solid var(--accent-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px var(--accent-yellow);
+  animation: nfc-pulse 2s ease-in-out infinite;
+}
+
+@keyframes nfc-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.phone-wallet-card {
+  background: var(--surface-white);
+  border: 1px solid var(--stroke-strong);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Tab Switcher Section */
+.switcher-section {
+  padding: 90px 0;
+}
+
+.tab-buttons {
+  display: inline-flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 48px;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: var(--surface-white);
+  color: var(--text-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Technical Comparison Matrix Table */
+.comparison-section {
+  padding: 90px 0;
+  background: var(--bg-softer);
+  border-top: 1px solid var(--stroke);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--stroke);
+}
+
+.comparison-table th, .comparison-table td {
+  padding: 20px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.comparison-table th {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.comparison-table th.highlight-col, .comparison-table td.highlight-col {
+  background: rgba(255, 212, 0, 0.08);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Partner & Settlement Network Strip */
+.partner-strip {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background: var(--surface-white);
+  border-top: 1px solid var(--stroke);
+  padding: 80px 0 40px;
+}
+
+/* Modals & Toasts */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-xeno {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.toast-xeno {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  background: #111827;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .simulator-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}

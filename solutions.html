@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solutions & Kernel SDK — Xeno (Robinhood Chain)</title>
+  <meta name="description" content="Integrate the Xeno EMV payment kernel into PAX, Verifone, and Ingenico terminals, or embed the NFC Tap-to-Pay SDK into Web3 wallets on Robinhood EVM." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="virtual-protocol-site-verification" content="d31316561a7c1d15561f4a424676cff0" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#121212"/>
+            <path d="M12 12L28 28M28 12L12 28" stroke="#FFD400" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span>XENO</span>
+        </a>
+
+        <div class="chain-tag">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+          ROBINHOOD CHAIN
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link active">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button class="btn-black connect-wallet-trigger" onclick="openWalletModal()">Connect Wallet</button>
+        <a href="contact.html" class="btn-yellow">Start Integration →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOLUTIONS CONTENT -->
+  <main class="max-w-7xl" style="padding-top: 140px; padding-bottom: 90px;">
+    <div class="hero-badge">ENTERPRISE INTEGRATION ARCHITECTURE</div>
+    <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.03em;">
+      Payment Infrastructure & Terminal Kernels
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 680px; margin-bottom: 60px; line-height: 1.6;">
+      Xeno delivers EMV-compatible payment kernels for terminal manufacturers and SDK modules for self-custodial EVM wallets on Robinhood Chain.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+      
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-lg); padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+        <div style="font-size: 2.2rem; margin-bottom: 16px;">📱</div>
+        <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px;">For Web3 Wallets & Neobanks</h2>
+        <p style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.65; margin-bottom: 24px;">
+          Enable your users to tap their phones on existing payment terminals to spend USDg stablecoins without losing self-custody or yield.
+        </p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; font-size: 0.92rem; color: var(--text-secondary);">
+          <li>✅ Native iOS & Android HCE (Host Card Emulation) NFC SDK</li>
+          <li>✅ Zero-gas account abstraction (ERC-4337) relayers</li>
+          <li>✅ Offline cryptographic signing & fast sub-second submission</li>
+        </ul>
+        <a href="contact.html" class="btn-black" style="width: 100%; justify-content: center;">Request Wallet SDK Key</a>
+      </div>
+
+      <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-lg); padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+        <div style="font-size: 2.2rem; margin-bottom: 16px;">💳</div>
+        <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px;">For PSPs & POS Terminals</h2>
+        <p style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.65; margin-bottom: 24px;">
+          Deploy Xeno as a payment kernel update on your existing PAX, Verifone, and Ingenico terminal fleets with zero hardware replacement.
+        </p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; font-size: 0.92rem; color: var(--text-secondary);">
+          <li>✅ EMV L1/L2 kernel module compatible with ISO 14443 NFC</li>
+          <li>✅ Direct RPC submission to Robinhood EVM nodes</li>
+          <li>✅ MiCA-compliant cash treatment under $10,000 per transaction</li>
+        </ul>
+        <a href="contact.html" class="btn-yellow" style="width: 100%; justify-content: center;">Get Terminal Kernel Spec</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="max-w-7xl" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 8px;">XENO</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">&copy; 2026 Xeno Protocol. Robinhood Chain EVM Payment Rail.</p>
+      </div>
+
+      <div class="nav-links" style="display: flex;">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

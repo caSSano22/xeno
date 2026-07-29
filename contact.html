@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Integration — Xeno Protocol</title>
+  <meta name="description" content="Contact Xeno engineering to request Web3 wallet SDK access or terminal kernel specifications for Robinhood Chain EVM." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="virtual-protocol-site-verification" content="d31316561a7c1d15561f4a424676cff0" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#121212"/>
+            <path d="M12 12L28 28M28 12L12 28" stroke="#FFD400" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span>XENO</span>
+        </a>
+
+        <div class="chain-tag">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+          ROBINHOOD CHAIN
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link active">Contact Us</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button class="btn-black connect-wallet-trigger" onclick="openWalletModal()">Connect Wallet</button>
+        <a href="contact.html" class="btn-yellow">Start Integration →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTACT FORM CONTENT -->
+  <main class="max-w-5xl" style="padding-top: 140px; padding-bottom: 90px;">
+    <div class="hero-badge">PARTNER WITH XENO</div>
+    <h1 style="font-size: 3.2rem; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.03em;">
+      Start Integration Today
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 48px; line-height: 1.6;">
+      Get early access to the Xeno NFC SDK for self-custodial Web3 wallets or PAX/Verifone terminal EMV kernel specifications on Robinhood EVM.
+    </p>
+
+    <div style="background: var(--surface-white); border: 1px solid var(--stroke); border-radius: var(--radius-lg); padding: 48px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+      <form onsubmit="event.preventDefault(); showToast('Integration Request Submitted! Our team will contact you within 24 hours.');">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+          <div>
+            <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">First & Last Name</label>
+            <input type="text" required placeholder="Satoshi Nakamoto" style="width: 100%; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--stroke-strong); font-size: 0.95rem;" />
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">Work Email</label>
+            <input type="email" required placeholder="tom@xeno.money" style="width: 100%; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--stroke-strong); font-size: 0.95rem;" />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">Organization Type</label>
+          <select style="width: 100%; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--stroke-strong); font-size: 0.95rem; background: #fff;">
+            <option>Web3 Wallet Developer</option>
+            <option>Payment Service Provider (PSP)</option>
+            <option>POS Terminal Manufacturer (PAX / Verifone / Ingenico)</option>
+            <option>Merchant / Retailer</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <label style="display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">Project Details</label>
+          <textarea rows="4" required placeholder="Tell us about your wallet userbase or terminal fleet..." style="width: 100%; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--stroke-strong); font-size: 0.95rem;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-yellow" style="width: 100%; justify-content: center; padding: 16px 0; font-size: 1rem;">
+          Submit Integration Request
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="max-w-7xl" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 8px;">XENO</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">&copy; 2026 Xeno Protocol. Robinhood Chain EVM Payment Rail.</p>
+      </div>
+
+      <div class="nav-links" style="display: flex;">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

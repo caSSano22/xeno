@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xeno | A New Card Scheme Alongside Visa & Mastercard (Robinhood Chain)</title>
+  <meta name="description" content="Xeno is a new card scheme for stablecoins. Self-custodial NFC tap-to-pay with instant settlement, zero chargebacks, and no middlemen on Robinhood Chain EVM." />
+  <meta name="theme-color" content="#f8fafc" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta property="og:title" content="Xeno | The Third Rail of Global Payments" />
+  <meta property="og:description" content="Infrastructure that turns Web3 Wallets into contactless payment instruments and PSPs into instant settlement nodes." />
+  <meta name="virtual-protocol-site-verification" content="d31316561a7c1d15561f4a424676cff0" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div style="display: flex; align-items: center;">
+        <a href="index.html" class="brand-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#121212"/>
+            <path d="M12 12L28 28M28 12L12 28" stroke="#FFD400" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span>XENO</span>
+        </a>
+
+        <div class="chain-tag">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+          ROBINHOOD CHAIN
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <button class="btn-black connect-wallet-trigger" onclick="openWalletModal()">Connect Wallet</button>
+        <a href="contact.html" class="btn-yellow">
+          <span>Start Integration</span>
+          <span style="font-size: 1.1rem;">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="max-w-7xl">
+      <div class="hero-badge">THE THIRD RAIL OF GLOBAL PAYMENTS</div>
+      
+      <h1 class="hero-title">
+        The Third Rail of<br/>
+        <span class="highlight">Global Payments.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Infrastructure that turns <strong>Web3 Wallets</strong> into contactless payment instruments and <strong>PSPs</strong> into instant settlement nodes on Robinhood Chain EVM.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+        <button class="btn-black" onclick="openWalletModal()">
+          <span>Google Play App</span>
+        </button>
+        <button class="btn-black" style="background: rgba(0,0,0,0.06); color: var(--text-primary); border: 1px solid var(--stroke-strong);" onclick="openWalletModal()">
+          <span>Apple Store App</span>
+        </button>
+      </div>
+
+      <!-- NFC TAP-TO-PAY TERMINAL SIMULATOR WIDGET -->
+      <div class="nfc-simulator-wrap">
+        <div style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px;">
+          ⚡ LIVE INTERACTIVE NFC TAP-TO-PAY DEMO (ROBINHOOD EVM)
+        </div>
+
+        <div class="simulator-grid">
+          
+          <!-- POS Terminal Card -->
+          <div class="pos-terminal-card">
+            <div class="nfc-signal-ring">📡</div>
+            <div style="font-size: 0.78rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;">MERCHANT POS TERMINAL</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-bottom: 12px;">$45.00 USDg</div>
+            
+            <div id="terminalStatusText" style="font-family: var(--font-body); font-size: 0.9rem; color: var(--accent-yellow); font-weight: 600; margin-bottom: 16px;">
+              Ready for Contactless Tap...
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; display: flex; justify-content: space-between; font-size: 0.75rem; color: #9ca3af;">
+              <span>Terminal: PAX-A920-RH</span>
+              <span id="terminalTxHash">Settlement: Instant (&lt;1.5s)</span>
+            </div>
+          </div>
+
+          <!-- Phone Wallet Card -->
+          <div class="phone-wallet-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">Robinhood Web3 Wallet</span>
+              <span style="background: rgba(34,197,94,0.15); color: #22c55e; padding: 4px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600;">Self-Custodial</span>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Available USDg Balance</div>
+              <div id="walletBalanceDisplay" style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary);">$2,500.00 USDg</div>
+              <div style="font-size: 0.78rem; color: var(--accent-yellow-dark); font-weight: 600;">Earning 10.4% APY until tap</div>
+            </div>
+
+            <button id="simulateNfcTapBtn" class="btn-yellow" style="width: 100%; justify-content: center; padding: 14px 0;">
+              <span>Simulate Contactless NFC Tap</span>
+              <span>📱⚡</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB SWITCHER SOLUTIONS SECTION -->
+  <section class="switcher-section">
+    <div class="max-w-5xl" style="text-align: center;">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="wallets">For Wallets & Neobanks</button>
+        <button class="tab-btn" data-tab="psps">For PSPs & Terminals</button>
+      </div>
+
+      <!-- Content 1: Wallets -->
+      <div id="walletsSolutionContent">
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 16px;">The Apple Pay experience, native to your app.</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 620px; margin: 0 auto 32px;">
+          Why route through legacy rails? Integrate the Xeno SDK and give your users native tap-to-pay on Robinhood Chain EVM. Funds move on-chain, not through banks.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 28px;">
+          <span style="background: rgba(0,0,0,0.04); padding: 8px 18px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;">Self-Custodial</span>
+          <span style="background: rgba(0,0,0,0.04); padding: 8px 18px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;">Keep Earning Yield</span>
+          <span style="background: rgba(0,0,0,0.04); padding: 8px 18px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;">In-Person Tap-to-Pay</span>
+          <span style="background: rgba(0,0,0,0.04); padding: 8px 18px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;">Cross-Platform SDK</span>
+        </div>
+
+        <a href="solutions.html" style="color: var(--accent-yellow-dark); font-weight: 700; font-size: 1rem;">
+          Access SDK Documentation →
+        </a>
+      </div>
+
+      <!-- Content 2: PSPs -->
+      <div id="pspsSolutionContent" style="display: none;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 16px;">A New Card Scheme. Alongside Visa & Mastercard.</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 620px; margin: 0 auto 32px;">
+          Xeno integrates as a kernel update on existing PAX, Verifone, and Ingenico terminals. Accept USDg stablecoin payments with instant settlement and zero chargebacks.
+        </p>
+        <a href="solutions.html" style="color: var(--accent-yellow-dark); font-weight: 700; font-size: 1rem;">
+          View Terminal Kernel Specifications →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL COMPARISON MATRIX -->
+  <section class="comparison-section">
+    <div class="max-w-5xl">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div style="color: var(--accent-yellow-dark); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px;">THE TECHNICAL MOAT</div>
+        <h2 style="font-size: 2.4rem; font-weight: 800;">Why We Win Where Others Failed</h2>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 8px;">We built a communication protocol bridging existing EMV rails and NFC on Robinhood Chain.</p>
+      </div>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Old Way (Visa / Mastercard / QR)</th>
+            <th class="highlight-col">Xeno (Robinhood EVM)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Payment Method</strong></td>
+            <td>QR Codes / Manual Input</td>
+            <td class="highlight-col">⚡ NFC Tap-to-Pay</td>
+          </tr>
+          <tr>
+            <td><strong>Custody</strong></td>
+            <td>Custodial (Central Bank / Middlemen)</td>
+            <td class="highlight-col">🔒 Self-Custodial Wallet</td>
+          </tr>
+          <tr>
+            <td><strong>Yield on Holdings</strong></td>
+            <td>None (0% APY in float)</td>
+            <td class="highlight-col">📈 Retained Until Spent (10.4% USDg)</td>
+          </tr>
+          <tr>
+            <td><strong>Settlement Speed</strong></td>
+            <td>3–5 Business Day Float</td>
+            <td class="highlight-col">⏱️ Instant (&lt;1.5s Onchain)</td>
+          </tr>
+          <tr>
+            <td><strong>Chargebacks</strong></td>
+            <td>$125B/yr Industry Fraud Cost</td>
+            <td class="highlight-col">🛡️ Zero (Cryptographic Finality)</td>
+          </tr>
+          <tr>
+            <td><strong>In-Person KYC</strong></td>
+            <td>Full Friction / Identity Cards</td>
+            <td class="highlight-col">💶 Cash Treatment (&lt;$10k)</td>
+          </tr>
+          <tr>
+            <td><strong>Merchant Fees</strong></td>
+            <td>2.5% – 4.0% Interchange</td>
+            <td class="highlight-col">✨ Near Zero (&lt;$0.001 Gas)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SETTLEMENT NETWORKS STRIP -->
+  <div class="partner-strip">
+    <div class="max-w-7xl">
+      <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase;">SETTLEMENT & TERMINAL NETWORKS</div>
+      <div class="partner-logos">
+        <span>🟢 ROBINHOOD EVM</span>
+        <span>PAX TERMINALS</span>
+        <span>VERIFONE</span>
+        <span>INGENICO</span>
+        <span>USDg (GLOBAL DOLLAR)</span>
+        <span>BASE</span>
+        <span>SOLANA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="max-w-7xl" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 8px;">XENO</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">&copy; 2026 Xeno Protocol. Robinhood Chain EVM Payment Rail.</p>
+      </div>
+
+      <div class="nav-links" style="display: flex;">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <a href="https://github.com/caSSano22/xeno" target="_blank" class="nav-link">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Wallet Connection Modal -->
+  <div class="modal-backdrop" id="walletModal">
+    <div class="modal-content-xeno">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary);">Connect EVM Wallet</h3>
+        <button style="background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem;" onclick="closeWalletModal()">&times;</button>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.5;">
+        Connect Robinhood Web3 Wallet to test gasless USDg NFC tap-to-pay transactions on Robinhood EVM.
+      </p>
+      <button class="btn-yellow" style="width: 100%; justify-content: center; padding: 14px 0;" onclick="connectRealEIP1193Wallet()">
+        Confirm Robinhood Wallet Connection
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
